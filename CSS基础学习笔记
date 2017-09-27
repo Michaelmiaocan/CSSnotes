@@ -2,3 +2,32 @@ css 样式由选择符和声明组成，而声明又由属性和值组成,p{font
 选择符：又称选择器，指明网页中要应用样式规则的元素，如本例中是网页中所有的段（p）的文字将变成蓝色，而其他的元素（如ol）不会受到影响
 声明：在英文大括号“｛｝”中的的就是声明，属性和值之间用英文冒号“：”分隔。当有多条声明时，中间可以英文分号“;”分隔
 /*注释语句*/，Html中使用<!--注释语句-->
+CSS样式来看主要有三种，内联式、嵌入式、外部式；
+内联式：css样式表就是把css代码直接写在现有的HTML标签中，如<p style="color:red">这里文字是红色。</p>（注意要写在元素的开始标签里）
+并且css样式代码要写在style=""双引号中，如果有多条css样式代码设置可以写在一起，中间用分号隔开，<p style="color:red;font-size:12px">这里文字是红色。</p>
+嵌入式css样式，就是可以把css样式代码写在<style type="text/css"></style>标签之间。
+<style type="text/css">
+span{
+color:red;
+}
+</style>    用来实现将<span>标签中的文字设为红色；嵌入式css样式必须写在<style></style>之间，并且一般情况下嵌入式css样式写在<head></head>之间
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>嵌入式css样式</title>
+<style type="text/css">
+span{
+   color:blue;
+}
+</style>
+</head>
+<body>
+    <p>慕课网，<span>超酷的互联网</span>、IT技术免费学习平台，创新的网络一站式学习、实践体验；<span>服务及时贴心</span>，内容专业、<span>有趣易学</span>。专注服务互联网工程师快速成为技术高手！</p>
+</body>
+</html>
+
+外部式css样式(也可称为外联式)就是把css代码写一个单独的外部文件中，这个css样式文件以".css"为扩展名，在<head>内（不是在<style>标签内）使用<link>标签将css样式文件链接到HTML文件内，如
+<link href="base.css" rel="stylesheet" type="text/css" />。注意：1.css样式文件名称以有意义的英文字母命名，如 main.css；2.rel="stylesheet" type="text/css" 是固定写法不可修改；3.<link>标签位置一般写在<head>标签之内;
+三种样式的优先级：内联式>嵌入式>外部式；但是嵌入式>外部式有一个前提：嵌入式css样式的位置一定在外部式的后面。如右代码编辑器就是这样，<link href="style.css" ...>代码在<style type="text/css">...</style>代码的前面（实际开发中也是这么写的）
